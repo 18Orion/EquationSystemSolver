@@ -1,0 +1,1 @@
+/Datos/Programación/Proyectos C++/Sistemas de ecuaciones/include/funcion.hpp
