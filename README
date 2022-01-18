@@ -1,0 +1,3 @@
+This is a library and header for resolving a equations system from an input, given in a string.
+This uses the function resolver library in https://github.com/18Orion/MathematicalFunctionSolve and an iterative method to solve it.
+For compiling the demonstration executable install clang and execute make.
