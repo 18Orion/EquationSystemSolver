@@ -1,1 +1,0 @@
-/Datos/Programación/Proyectos C++/Sistemas de ecuaciones/include/EquationSystem.hpp
