@@ -15,7 +15,7 @@ void equationSystem::introduceEquations(string eq1, string eq2){
 }
 
 void equationSystem::solve(double *x, double *y){
-    double i=0, diference=10, distancePoints;
+    double i=0, diference=1, distancePoints;
     struct point{
         double x=0;
         double y=0;
@@ -26,18 +26,17 @@ void equationSystem::solve(double *x, double *y){
     i+=diference;
     p1.y=fn1->solve(i);
     p2.y=fn2->solve(i);
-    if(!(abs(p1.y-p2.y)<distancePoints)){
-        diference=-diference;
-    }
+    if(abs(p1.y-p2.y)>distancePoints) diference=-diference;
+    distancePoints=abs(p1.y-p2.y);
+    i+=diference;
     while(true){
+        i+=diference;
         p1.y=fn1->solve(i);
         p2.y=fn2->solve(i);
-        if(!(abs(p1.y-p2.y)<distancePoints)){
+        if(abs(p1.y-p2.y)>distancePoints){
             diference=-diference/10;
-        }
-        if(p1.y==p2.y||diference<0.0000001||distancePoints==abs(p1.y-p2.y)) break;
-        distancePoints=abs(p1.y-p2.y);
-        i+=diference;
+        }else if(p1.y==p2.y) break;
+        distancePoints=abs(p1.y-p2.y); 
     }
     *x=i;
     *y=p1.y;
